@@ -1,0 +1,1 @@
+CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 main.py --eval_only=false --model_name='llama' --n_layers 2 --batch_size 2 --out_dir '../tmp_outp'
