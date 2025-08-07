@@ -47,5 +47,5 @@ with open('output_k.txt', 'w') as output_file:
                 compression_ratios.append(ratio)
             
             mean_compression_ratio = np.mean(compression_ratios) if compression_ratios else float('inf')
-            output_file.write(f"数据集 {file}, 裁剪长度 {truncate_length}, 平均压缩率: {mean_compression_ratio}\n")
-            print(f"数据集 {file}, 裁剪长度 {truncate_length}, 平均压缩率: {mean_compression_ratio}")
+            output_file.write(f"Dataset {file}, Seq_len {truncate_length},compression ratio: {mean_compression_ratio}\n")
+            print(f"dataset {file}, Seq_len {truncate_length}, compression ratio: {mean_compression_ratio}")
