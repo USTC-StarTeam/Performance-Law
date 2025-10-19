@@ -1,5 +1,51 @@
 # README for Predictive Modeling in Sequential Recommendation: Bridging Performance Laws with Data Quality Insights
 
+
+---
+
+## PerformanceLaw Library
+
+This project provides the `PerformanceLaw` Python library for measuring the **actual entropy** of a sequence. Actual entropy quantifies the information complexity or data quality in sequential data, which can help analyze user behavior and support performance law studies.
+
+### Main Functions
+
+- `actual_entropy(seq)`: Returns the actual entropy of a sequence.
+- `actual_entropy_tq(seq)`: Same as above, with a progress bar (requires `tqdm` installed).
+
+### Installation
+
+From the project root (where `setup.py` is located), run:
+
+```bash
+pip install -e .
+```
+
+### Example Usage
+
+Import and use in any Python file:
+
+```python
+from PerformanceLaw import actual_entropy, actual_entropy_tq
+
+sequence = [1, 2, 1, 2, 3]
+print(actual_entropy(sequence))
+```
+
+Use the progress bar version for longer sequences:
+
+```python
+print(actual_entropy_tq(sequence))  # Requires 'tqdm'
+```
+
+### Typical Applications
+
+- Measure sequence complexity in recommendation systems.
+- Assess data quality or diversity in behavioral datasets.
+- Support performance law and scaling law analysis with a simple entropy metric.
+
+---
+
+
 This README provides an overview of the project and instructions on how to navigate and utilize the different components available in the `/General_Transformer` and `/Performance_Law_Appendix_Result` directories.
 
 ## Project Overview

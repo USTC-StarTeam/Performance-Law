@@ -1,0 +1,6 @@
+setup.py
+PerformanceLaw/__init__.py
+PerformanceLaw.egg-info/PKG-INFO
+PerformanceLaw.egg-info/SOURCES.txt
+PerformanceLaw.egg-info/dependency_links.txt
+PerformanceLaw.egg-info/top_level.txt
