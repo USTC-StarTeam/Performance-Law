@@ -5,12 +5,15 @@
 
 ## PerformanceLaw Library
 
-This project provides the `PerformanceLaw` Python library for measuring the **actual entropy** of a sequence. Actual entropy quantifies the information complexity or data quality in sequential data, which can help analyze user behavior and support performance law studies.
+This project provides the `PerformanceLaw` Python library for evaluating the complexity and information quality of sequence data. The library includes several metrics:
 
 ### Main Functions
 
-- `actual_entropy(seq)`: Returns the actual entropy of a sequence.
-- `actual_entropy_tq(seq)`: Same as above, with a progress bar (requires `tqdm` installed).
+- `actual_entropy(seq)`: Estimates actual entropy of a sequence.
+- `actual_entropy_tq(seq)`: Same as above, shows a progress bar (needs `tqdm`).
+- `ApEn(U, m, r)`: Calculates the Approximate Entropy of a sequence `U`, with embedding dimension `m` and threshold `r`.
+- `compression_ratio(data)`: Measures the compressibility of a list of integers. Low ratio means data is more compressible (less random).
+- `shannon_entropy(sequence)`: Computes the Shannon entropy (in bits) of a sequence.
 
 ### Installation
 
@@ -20,29 +23,40 @@ From the project root (where `setup.py` is located), run:
 pip install -e .
 ```
 
+Make sure you have installed numpy (and optionally tqdm):
+
+```bash
+pip install numpy tqdm
+```
+
 ### Example Usage
 
-Import and use in any Python file:
-
 ```python
-from PerformanceLaw import actual_entropy, actual_entropy_tq
+from PerformanceLaw import (
+    actual_entropy,
+    actual_entropy_tq,
+    ApEn,
+    compression_ratio,
+    shannon_entropy
+)
 
-sequence = [1, 2, 1, 2, 3]
-print(actual_entropy(sequence))
+seq = [1, 2, 1, 2, 3]
+
+print(actual_entropy(seq))
+print(shannon_entropy(seq))
+print(ApEn(seq, m=2, r=0.2))
+print(compression_ratio(seq))
 ```
 
-Use the progress bar version for longer sequences:
+---
 
-```python
-print(actual_entropy_tq(sequence))  # Requires 'tqdm'
-```
+### Application Scenarios
 
-### Typical Applications
+These functions help measure sequence complexity, data randomness, and information content. They can be used in recommendation systems, time-series analysis, and data quality evaluation.
 
-- Measure sequence complexity in recommendation systems.
-- Assess data quality or diversity in behavioral datasets.
-- Support performance law and scaling law analysis with a simple entropy metric.
+---
 
+**For details, see source code comments and examples.**
 ---
 
 
